@@ -10,7 +10,8 @@ module.exports = {
             .addFields(
             {name: 'Question: 1 ( -who )', value: 'Who are you?'},
             {name: 'Question: 2 ( -where )', value: 'Where is Zaza?'},
-            {name: 'Question: 3 ( -purpose )', value: 'What is your purpose?'})
+            {name: 'Question: 3 ( -purpose )', value: 'What is your purpose?'},
+            {name: 'Question: 4 ( -commands )', value: 'Shows all my commands'})
             .setURL('https://twitter.com/RespectTheZaza')
           
             .setImage('https://i.gyazo.com/862690b3b85eeb57ccb2876d3c35763a.png')
