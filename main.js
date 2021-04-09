@@ -1,4 +1,5 @@
 const Discord = require('discord.js');
+const TOKEN = require('./credentials');
 const client = new Discord.Client();
 const { Client, MessageEmbed } = require('discord.js');
 
@@ -28,31 +29,32 @@ client.on('message', message =>{
     const args = message.content.slice(prefix.length).split(/ +/);
     const command = args.shift().toLowerCase();
 
-    if(command === 'cyrus'){
-        client.commands.get('cyrus').execute(message, args, Discord);
+    switch(command){
+        case 'cyrus':
+            client.commands.get('cyrus').execute(message, args, Discord);
+            break;
+        case 'who':
+            client.commands.get('who').execute(message, args, Discord);
+            break;
+        case 'where':
+            client.commands.get('where').execute(message, args, Discord);
+            break;
+        case 'purpose':
+            client.commands.get('purpose').execute(message, args, Discord);
+            break;
+        case 'play':
+            client.commands.get('play').execute(message, args, Discord);
+            break;
+        case 'leave':
+            client.commands.get('leave').execute(message, args, Discord);
+            break;
+        case 'hello':
+            client.commands.get('hello').execute(message, args, Discord);
+            break;
     }
-    if(command === 'who'){
-        client.commands.get('who').execute(message, args, Discord);
-    }
-    if(command === 'where'){
-        client.commands.get('where').execute(message, args, Discord);
-    }
-    if(command === 'purpose'){
-        client.commands.get('purpose').execute(message, args, Discord);
-    }
-    if(command === 'play'){
-        client.commands.get('play').execute(message, args, Discord);
-    }
-    if(command === 'leave'){
-        client.commands.get('leave').execute(message, args, Discord);
-    }
-    if(command === 'hello'){
-        client.commands.get('hello').execute(message, args, Discord);
-    }
-
 });
 
 ////// Token ///////
 
-client.login('');
+client.login(TOKEN.token);
 
