@@ -4,14 +4,14 @@ const ytSearch = require('yt-search');
 module.exports = {
     name: 'play',
     description: 'Joins and plays a video from youtube',
-    async execute(message, args) {
+    async execute(client, message, args, Discord) {
         const voiceChannel = message.member.voice.channel;
  
         if (!voiceChannel) return message.channel.send('You need to be in a channel to execute this command!');
         const permissions = voiceChannel.permissionsFor(message.client.user);
         if (!permissions.has('CONNECT')) return message.channel.send('You dont have the correct permissions');
         if (!permissions.has('SPEAK')) return message.channel.send('You dont have the correct permissions');
-        if (!args.length) return message.channel.send('You need to send the second argument!');
+        if (!args.length) return message.channel.send('You need to send the LINK!');
  
         const validURL = (str) =>{
             var regex = /(http|https):\/\/(\w+:{0,1}\w*)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%!\-\/]))?/;
